@@ -1,10 +1,10 @@
-import FirstForm from './Forms/FirstForm';
+import CreateCompetition from './Forms/CreateCompetition.jsx';
 
 function App() {
   return (
     <div className='wrapper'>
-      <div className='competition'>
-        <FirstForm />
+      <div className='container'>
+        <CreateCompetition />
       </div>
     </div>
   );

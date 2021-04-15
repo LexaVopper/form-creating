@@ -1,5 +1,5 @@
 export const initialState = {
-  toggleParams: '',
+  toggleParams: 'contributions',
 };
 
 export const toggleForms = (state = initialState, action) => {

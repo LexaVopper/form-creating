@@ -1,0 +1,157 @@
+.modul-prize {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+}
+.error {
+  color: red;
+  align-self: center;
+  font-size: 20px;
+}
+i {
+  &.fa-exclamation-triangle {
+    margin-left: 5px;
+  }
+}
+.active {
+  visibility: visible;
+}
+.hide {
+  visibility: hidden;
+}
+input::placeholder {
+  color: #fff;
+}
+
+.prize {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  background-color: $elemColor;
+  position: relative;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 2px rgb(188, 174, 221);
+
+  &__title {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    padding: 20px 0 10px 0;
+
+    input {
+      background-color: $inputColor;
+      border: 0;
+      padding: 6px;
+      font-size: 20px;
+      color: #ffffff;
+      border-radius: 5px;
+      margin-left: 10px;
+      width: 50%;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &__edit {
+    position: absolute;
+    top: 3%;
+    left: 88%;
+
+    width: 70px;
+    height: 20px;
+
+    align-self: center;
+    border-radius: 10px;
+    border: 1px solid #32a1ce;
+    background-color: $buttonColor;
+    cursor: pointer;
+    font-weight: bold;
+    color: $wordColor;
+    &:hover {
+      color: #ffffff;
+      background-color: #3d91ff;
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 100%;
+    padding: 5px;
+    align-items: center;
+  }
+  &__delete {
+    cursor: pointer;
+    position: absolute;
+    text-align: center;
+    left: 101%;
+    top: 0;
+    font-size: 20px;
+  }
+}
+.characteristic {
+  position: relative;
+  align-self: flex-end;
+  width: 70%;
+  padding: 5px;
+  background-color: #ffff;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  margin: 0 0 5px 0;
+
+  border: 2px solid #32a1ce;
+  border-radius: 5px;
+
+  &__delete {
+    cursor: pointer;
+    position: absolute;
+    text-align: center;
+    left: 96%;
+    top: 15%;
+    font-size: 20px;
+  }
+  &__type {
+    flex: 0 1 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    input {
+      width: 45%;
+      background-color: $inputColor;
+      border: 0;
+      padding: 4px;
+      font-size: 14px;
+      color: #fff;
+      border-radius: 5px;
+    }
+  }
+  &__name {
+    flex: 0 1 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    input {
+      width: 80%;
+      background-color: $inputColor;
+      border: 0;
+      padding: 4px;
+      font-size: 14px;
+      color: #fff;
+      border-radius: 5px;
+    }
+  }
+}
+
+.characteristic-module {
+  width: 100%;
+  display: flex;
+
+  align-items: center;
+  flex-direction: column;
+}

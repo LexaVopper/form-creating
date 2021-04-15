@@ -12,23 +12,21 @@ $wordColor: rgb(75, 78, 80);
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial,
     sans-serif;
 }
-
-.competition {
+.container {
   background-color: $mainColor;
   width: 100%;
   height: 100%;
-
   max-width: 700px;
-  position: relative;
+
   color: $wordColor;
+}
+
+.competition {
+  width: 100%;
   :focus {
     outline: none;
   }
-  &.--first {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-  }
+
   &__buttons {
     display: flex;
     justify-content: center;
@@ -39,228 +37,326 @@ $wordColor: rgb(75, 78, 80);
       margin: 0 20px;
     }
   }
-  .forms {
-    .form {
-      visibility: hidden;
-      display: flex;
-      justify-content: flex-start;
-      flex-direction: column;
-      padding: 10px;
+}
 
-      &__title {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-        padding: 15px 0;
+.button {
+  width: 200px;
+  height: 50px;
+  margin: 10px;
+  align-self: center;
+  border-radius: 10px;
+  border: 1px solid #32a1ce;
+  background-color: $buttonColor;
+  cursor: pointer;
+  font-weight: bold;
+  color: $wordColor;
 
-        h1 {
-          font-size: 25px;
-          flex: 0 1 15%;
-        }
+  justify-content: center;
+  align-items: center;
 
-        input {
-          background-color: $inputColor;
-          border: 0;
+  &-mini {
+    width: 150px;
+    height: 40px;
+    margin: 10px;
+    align-self: center;
+    border-radius: 10px;
+    border: 1px solid #32a1ce;
+    background-color: $buttonColor;
+    cursor: pointer;
+    font-weight: bold;
+    color: $wordColor;
+    p {
+      font-size: 15px;
+    }
 
-          padding: 6px;
-          font-size: 25px;
-          color: #ffffff;
+    &:hover {
+      color: #ffffff;
+      background-color: #3d91ff;
+    }
+  }
 
-          border-radius: 5px;
-          margin-left: 10px;
-          width: 50%;
-          &:focus {
-            outline: none;
-          }
-        }
-      }
+  p {
+    font-size: 20px;
+  }
 
-      &__photo {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        padding: 0 0 15px 0;
-        h1 {
-          font-size: 25px;
-          flex: 0 1 15%;
-        }
-        &label {
-        }
+  &:hover {
+    color: #ffffff;
+    background-color: #3d91ff;
+  }
+  &:focus {
+    outline: none;
+  }
+}
 
-        &__input {
-          width: 120px;
-          border: 2px dashed grey;
-          border-radius: 50%;
-          display: block;
-          padding: 1.2em;
-          transition: border 300ms ease;
-          cursor: pointer;
-          text-align: center;
+.moduls {
+  position: relative;
+  padding: 10px;
 
-          i {
-            display: block;
-            font-size: 34px;
-            padding-bottom: 10px;
-          }
-          input[type='file'] {
-            outline: 0;
-            opacity: 0;
+  &__next {
+    position: absolute;
+    top: -8%;
+    right: 13%;
+    width: 23%;
+    margin: 10px 0;
+    padding: 6px;
+    font-size: 25px;
+    color: black;
+    cursor: pointer;
 
-            pointer-events: none;
-            user-select: none;
-          }
+    border-radius: 5px;
+  }
+}
 
-          &:hover {
-            border: 2px solid #000;
-          }
-        }
-      }
-      &__contrib {
-        width: 100%;
-        background-color: $elemColor;
-        border: 2px solid #32a1ce;
-        border-radius: 10px;
-        position: relative;
+.modul-competition {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 10px;
+  &__title {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 15px 0;
 
-        display: flex;
-        flex-direction: column;
-        padding-bottom: 10px;
-        margin-bottom: 5px;
+    h1 {
+      font-size: 25px;
+      flex: 0 1 15%;
+    }
 
-        &__title {
-          margin-top: 10px;
-          font-size: 27px;
-          text-align: center;
-        }
+    input {
+      background-color: $inputColor;
+      border: 0;
 
-        &__content {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-around;
-          padding: 15px 0;
-          p {
-            font-size: 23px;
-            margin-right: 10px;
-          }
-          select {
-            padding: 4px;
-            font-size: 18px;
-            border-radius: 10px;
+      padding: 6px;
+      font-size: 25px;
+      color: #ffffff;
 
-            &:focus {
-              outline: none;
-            }
-          }
-
-          &__type {
-            display: flex;
-            align-items: center;
-            flex-direction: row;
-            background-color: $selectorColor;
-            border-radius: 5px;
-            padding: 5px;
-            color: #ffff;
-          }
-
-          &__social {
-            display: flex;
-            align-items: center;
-            flex-direction: row;
-            background-color: $selectorColor;
-            color: #ffff;
-            border-radius: 5px;
-            padding: 5px;
-          }
-        }
-        &__link {
-          color: #ffff;
-          width: 81%;
-          padding: 10px;
-          align-self: center;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          font-size: 17px;
-          background-color: $inputColor;
-          border-radius: 5px;
-
-          p {
-            font-size: 22px;
-          }
-          input {
-            color: black;
-            font-size: 18px;
-            border: 0;
-            padding: 8px 0;
-            margin-left: 10px;
-            width: 78%;
-            border-radius: 5px;
-          }
-        }
-        &__delete {
-          position: absolute;
-          top: 0;
-          padding: 5px;
-          left: 95%;
-          cursor: pointer;
-        }
-      }
-
-      &__button {
-        width: 200px;
-        height: 50px;
-        margin: 10px;
-        align-self: center;
-        border-radius: 10px;
-        border: 1px solid #32a1ce;
-        background-color: $buttonColor;
-        cursor: pointer;
-        font-weight: bold;
-        color: $wordColor;
-        p {
-          font-size: 20px;
-        }
-
-        &:hover {
-          color: #ffffff;
-          background-color: #3d91ff;
-        }
-        &:focus {
-          outline: none;
-        }
-      }
-
-      &__quantity {
-        display: flex;
-        flex-direction: row;
-        padding: 15px 0 20px 0;
-        align-items: center;
-
-        input {
-          color: black;
-          font-size: 18px;
-          border: 0;
-          padding: 8px 0;
-          text-align: center;
-          width: 10%;
-          border-radius: 5px;
-        }
-        p {
-          font-size: 23px;
-          flex: 0 1 37%;
-        }
-        span {
-          padding: 0 10px;
-          font-size: 25px;
-        }
+      border-radius: 5px;
+      margin-left: 10px;
+      width: 50%;
+      &:focus {
+        outline: none;
       }
     }
-    &__next {
-      margin: 10px 0;
+  }
+
+  &__quantity {
+    display: flex;
+    flex-direction: row;
+    padding: 15px 0 20px 0;
+    align-items: center;
+
+    input {
+      color: black;
+      font-size: 18px;
+      border: 0;
+      padding: 8px 0;
+      text-align: center;
+      width: 10%;
+      border-radius: 5px;
+    }
+    p {
+      font-size: 23px;
+      flex: 0 1 37%;
+    }
+    span {
+      padding: 0 10px;
+      font-size: 25px;
+    }
+  }
+  h1 {
+    padding: 10px 0;
+    font-size: 23px;
+    align-self: center;
+  }
+}
+
+.photo {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 0 15px 0;
+  position: relative;
+  img {
+    max-width: 200px;
+    max-height: 200px;
+  }
+
+  h1 {
+    font-size: 25px;
+    flex: 0 1 15%;
+  }
+
+  &.set_photo {
+    .photo__input {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 200px;
+        height: 200px;
+        max-width: 200px;
+        max-height: 200px;
+      }
+      label {
+        position: absolute;
+        width: 40px;
+        padding: 5px;
+        height: 40px;
+        left: 101%;
+      }
+    }
+  }
+  &.prize_photo {
+    .photo__input {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 200px;
+        height: 200px;
+        max-width: 200px;
+        max-height: 200px;
+      }
+      .photo__label {
+        position: absolute;
+        width: 40px;
+        padding: 5px;
+        height: 40px;
+        top: 49%;
+        left: 101%;
+      }
+    }
+  }
+
+  &__input {
+    label {
+      width: 150px;
+      height: 150px;
+      border: 2px dashed grey;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      transition: border 300ms ease;
+      cursor: pointer;
+      overflow: hidden;
+
+      &:hover {
+        border: 2px solid #000;
+      }
+
+      i {
+        padding: 5px;
+        display: block;
+        font-size: 34px;
+        align-self: center;
+      }
+
+      input[type='file'] {
+        display: none;
+      }
     }
   }
 }
+
+.contrib {
+  background-color: $elemColor;
+  border: 2px solid #32a1ce;
+  border-radius: 10px;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+
+  &__title {
+    margin-top: 10px;
+    font-size: 27px;
+    text-align: center;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 15px 0;
+    p {
+      font-size: 23px;
+      margin-right: 10px;
+    }
+    select {
+      padding: 4px;
+      font-size: 18px;
+      border-radius: 10px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  &__link {
+    color: #ffff;
+    width: 81%;
+    padding: 10px;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 17px;
+    background-color: $inputColor;
+    border-radius: 5px;
+
+    p {
+      font-size: 22px;
+    }
+    input {
+      color: black;
+      font-size: 18px;
+      border: 0;
+      padding: 8px 0;
+      margin-left: 10px;
+      width: 78%;
+      border-radius: 5px;
+    }
+  }
+  &__delete {
+    position: absolute;
+    top: 0;
+    padding: 5px;
+    left: 95%;
+    cursor: pointer;
+  }
+}
+.block {
+  &__type {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    background-color: $selectorColor;
+    border-radius: 5px;
+    padding: 5px;
+    color: #ffff;
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    background-color: $selectorColor;
+    color: #ffff;
+    border-radius: 5px;
+    padding: 5px;
+  }
+}
+
 .rdrMonthsVertical {
   align-items: center;
 }
@@ -272,3 +368,4 @@ $wordColor: rgb(75, 78, 80);
 }
 
 @import 'reset.scss';
+@import 'prize.scss';
