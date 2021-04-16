@@ -51,7 +51,6 @@ $wordColor: rgb(75, 78, 80);
   font-weight: bold;
   color: $wordColor;
 
-  justify-content: center;
   align-items: center;
 
   &-mini {
@@ -93,25 +92,28 @@ $wordColor: rgb(75, 78, 80);
   padding: 10px;
 
   &__next {
-    position: absolute;
-    top: -8%;
-    right: 13%;
-    width: 23%;
+    width: 155px;
     margin: 10px 0;
     padding: 6px;
     font-size: 25px;
     color: black;
     cursor: pointer;
-
+    align-self: flex-end;
     border-radius: 5px;
+  }
+  @media (max-width: 410px) {
+    &__next {
+      width: 125px;
+      font-size: 20px;
+    }
   }
 }
 
 .modul-competition {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   flex-direction: column;
-  padding: 10px;
+
   &__title {
     display: flex;
     flex-direction: row;
@@ -180,8 +182,8 @@ $wordColor: rgb(75, 78, 80);
   padding: 0 0 15px 0;
   position: relative;
   img {
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 154px;
+    max-height: 154px;
   }
 
   h1 {
@@ -196,10 +198,10 @@ $wordColor: rgb(75, 78, 80);
       justify-content: center;
       align-items: center;
       img {
-        width: 200px;
-        height: 200px;
-        max-width: 200px;
-        max-height: 200px;
+        width: 154px;
+        height: 154px;
+        max-width: 154px;
+        max-height: 154px;
       }
       label {
         position: absolute;
@@ -207,6 +209,11 @@ $wordColor: rgb(75, 78, 80);
         padding: 5px;
         height: 40px;
         left: 101%;
+      }
+      @media (max-width: 500px) {
+        label {
+          top: 67%;
+        }
       }
     }
   }
@@ -217,10 +224,10 @@ $wordColor: rgb(75, 78, 80);
       justify-content: center;
       align-items: center;
       img {
-        width: 200px;
-        height: 200px;
-        max-width: 200px;
-        max-height: 200px;
+        width: 154px;
+        height: 154px;
+        max-width: 154px;
+        max-height: 154px;
       }
       .photo__label {
         position: absolute;
@@ -229,6 +236,11 @@ $wordColor: rgb(75, 78, 80);
         height: 40px;
         top: 49%;
         left: 101%;
+      }
+      @media (max-width: 500px) {
+        .photo__label {
+          top: 67%;
+        }
       }
     }
   }
@@ -334,6 +346,15 @@ $wordColor: rgb(75, 78, 80);
     left: 95%;
     cursor: pointer;
   }
+  @media (max-width: 450px) {
+    &__content {
+      align-self: center;
+      flex-direction: column;
+      :nth-child(1) {
+        margin-bottom: 5px;
+      }
+    }
+  }
 }
 .block {
   &__type {
@@ -354,6 +375,15 @@ $wordColor: rgb(75, 78, 80);
     color: #ffff;
     border-radius: 5px;
     padding: 5px;
+  }
+
+  @media (max-width: 450px) {
+    &__type {
+      p {
+        flex: 0 1 35%;
+        text-align: center;
+      }
+    }
   }
 }
 

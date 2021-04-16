@@ -1,8 +1,13 @@
 .modul-prize {
   position: absolute;
+  margin: 0 auto;
+  right: 0;
   top: 0;
   left: 0;
   padding: 10px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 .error {
   color: red;
@@ -34,6 +39,17 @@ input::placeholder {
   border-radius: 10px;
   box-shadow: 3px 3px 2px rgb(188, 174, 221);
 
+  &__lock {
+    position: absolute;
+    width: 99%;
+    height: 100%;
+    background-color: rgba(236, 236, 231, 0.2);
+    border-radius: 10px;
+    transition: width 1s cubic-bezier(0, 0, 1, 1) 500ms;
+    &.edit {
+      width: 0;
+    }
+  }
   &__title {
     display: flex;
     justify-content: space-around;
@@ -58,9 +74,9 @@ input::placeholder {
   &__edit {
     position: absolute;
     top: 3%;
-    left: 88%;
-
-    width: 70px;
+    right: 2%;
+    z-index: 2;
+    width: 19%;
     height: 20px;
 
     align-self: center;
@@ -92,6 +108,35 @@ input::placeholder {
     top: 0;
     font-size: 20px;
   }
+
+  @media (max-width: 500px) {
+    &__title {
+      align-self: center;
+      flex-direction: column;
+      input {
+        width: 90%;
+      }
+      :nth-child(1) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  @media (max-width: 410px) {
+    flex-direction: column;
+    &__photo {
+      justify-content: center;
+    }
+    &__title {
+      align-self: center;
+      flex-direction: column;
+      input {
+        width: 90%;
+      }
+      :nth-child(1) {
+        margin-bottom: 10px;
+      }
+    }
+  }
 }
 .characteristic {
   position: relative;
@@ -111,7 +156,7 @@ input::placeholder {
     cursor: pointer;
     position: absolute;
     text-align: center;
-    left: 96%;
+    right: 3%;
     top: 15%;
     font-size: 20px;
   }
@@ -146,6 +191,9 @@ input::placeholder {
       border-radius: 5px;
     }
   }
+  @media (max-width: 410px) {
+    align-self: center;
+  }
 }
 
 .characteristic-module {
@@ -154,4 +202,8 @@ input::placeholder {
 
   align-items: center;
   flex-direction: column;
+
+  .button-mini {
+    align-self: flex-end;
+  }
 }

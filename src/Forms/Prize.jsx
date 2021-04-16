@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Characteristic from './Characteristic';
 import cn from 'classnames';
 
 function Prize({ watch, prizeRemove, index, item, control, register, errors }) {
   const watchImagePrize = watch(`prize[${index}].image`);
+
+  const [edit, setEditBlock] = useState('');
 
   return (
     <div className='modul-prize prize' key={item.id}>
@@ -47,7 +49,7 @@ function Prize({ watch, prizeRemove, index, item, control, register, errors }) {
 
         <Characteristic nestIndex={index} {...{ control, register, errors }} />
       </div>
-      <button className='prize__edit' type='button'>
+      <button onClick={() => setEditBlock('edit')} className='prize__edit' type='button'>
         Ред
       </button>
       {index === 0 ? (
@@ -57,6 +59,8 @@ function Prize({ watch, prizeRemove, index, item, control, register, errors }) {
           X
         </span>
       )}
+
+      <div className={cn('prize__lock', { edit: edit === 'edit' })}></div>
     </div>
   );
 }

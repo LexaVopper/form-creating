@@ -224,7 +224,7 @@ function CreateCompetition() {
           {prizeFields.map((item, index) => (
             <Prize
               watch={watch}
-              key={`${item.id}_${index}`}
+              key={`${index}_${index}`}
               item={item}
               index={index}
               {...{ control, register, errors }}
@@ -234,16 +234,15 @@ function CreateCompetition() {
           <button className='button' type='button' onClick={addPrize}>
             <p>Добавить приз</p>
           </button>
+          <input
+            className={cn(
+              'moduls__next',
+              { active: togglePageVisible === 'prize' },
+              { hide: togglePageVisible !== 'prize' },
+            )}
+            type='submit'
+          />
         </div>
-
-        <input
-          className={cn(
-            'moduls__next',
-            { active: togglePageVisible === 'prize' },
-            { hide: togglePageVisible !== 'prize' },
-          )}
-          type='submit'
-        />
       </form>
     </div>
   );
