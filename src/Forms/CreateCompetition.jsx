@@ -99,10 +99,14 @@ function CreateCompetition() {
   return (
     <div className='competition'>
       <div className='competition__buttons'>
-        <button className='button-mini' onClick={() => toggle(toggleNames[0])}>
+        <button
+          className={cn('button-mini', { active: togglePageVisible === 'contributions' })}
+          onClick={() => toggle(toggleNames[0])}>
           Конкурс
         </button>
-        <button className='button-mini' onClick={() => toggle(toggleNames[1])}>
+        <button
+          className={cn('button-mini', { active: togglePageVisible === 'prize' })}
+          onClick={() => toggle(toggleNames[1])}>
           Призы
         </button>
         <button className='button-mini'>Все</button>

@@ -17,7 +17,7 @@ function Characteristic({ nestIndex, control, register, errors }) {
         return (
           <div className='prize__content characteristic' key={item.id}>
             <span className='characteristic__delete' onClick={() => charRemove(ind)}>
-              X
+              <i class='fas fa-trash'></i>
             </span>
 
             <div className='characteristic__name'>

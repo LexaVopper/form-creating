@@ -7,6 +7,15 @@ function Prize({ watch, prizeRemove, index, item, control, register, errors }) {
   const watchImagePrize = watch(`prize[${index}].image`);
 
   const [edit, setEditBlock] = useState('');
+  let toggle = edit;
+
+  const toggleEdit = (str) => {
+    if (str !== '') {
+      setEditBlock('');
+    } else {
+      setEditBlock('edit');
+    }
+  };
 
   return (
     <div className='modul-prize prize' key={item.id}>
@@ -29,7 +38,7 @@ function Prize({ watch, prizeRemove, index, item, control, register, errors }) {
         <p className='error'>{errors?.photo?.message}</p>
       </div>
 
-      <div className='prize__content'>
+      <div className={cn('prize__content', { read: edit === '' })}>
         <div className='prize__title'>
           <input
             {...register(`prize[${index}].name`, {
@@ -49,14 +58,14 @@ function Prize({ watch, prizeRemove, index, item, control, register, errors }) {
 
         <Characteristic nestIndex={index} {...{ control, register, errors }} />
       </div>
-      <button onClick={() => setEditBlock('edit')} className='prize__edit' type='button'>
-        Ред
+      <button onClick={() => toggleEdit(toggle)} className='prize__edit' type='button'>
+        {edit === '' ? 'Редактировать' : 'Сохранить'}
       </button>
       {index === 0 ? (
         ''
       ) : (
         <span className='prize__delete' onClick={() => prizeRemove(index)}>
-          X
+          <i class='fas fa-trash'></i>
         </span>
       )}
 
