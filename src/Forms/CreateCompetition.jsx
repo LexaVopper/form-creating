@@ -95,7 +95,7 @@ function CreateCompetition() {
   };
 
   const toggleNames = ['contributions', 'prize'];
-
+  console.log(errors);
   return (
     <div className='competition'>
       <div className='competition__buttons'>
@@ -123,13 +123,12 @@ function CreateCompetition() {
             <h1>Название:</h1>
             <input
               {...register('name', {
-                required: <i className='fas fa-exclamation-triangle'></i>,
+                required: 'Укажите название',
                 maxLength: 30,
               })}
             />
-            <p className='error'>{errors?.name?.message}</p>
           </div>
-
+          <p className='error'>{errors?.name?.message}</p>
           <div
             className={cn('modul-competition photo', {
               set_photo: watchImageCompet?.length === 1,
@@ -146,14 +145,13 @@ function CreateCompetition() {
 
                 <input
                   {...register('photo', {
-                    required: <i className='fas fa-exclamation-triangle'></i>,
+                    required: 'Укажите фотографию',
                   })}
                   type='file'
-                  //onChange={(e) => setImage(URL.createObjectURL(e?.target?.files[0]))}
                 />
               </label>
             </div>
-            <p className='error'>{errors?.photo?.message}</p>
+            <p className='error'> {errors?.photo?.message}</p>
           </div>
 
           {fields.map((item, index) => {
@@ -183,6 +181,10 @@ function CreateCompetition() {
                   <input
                     {...register(`contributions.${index}.link`, {
                       required: 'Укажите ссылку',
+                      pattern: {
+                        value: /^(ftp|http|https):\/\/[^ "]+$/,
+                        message: 'Укажите ссылку правильно',
+                      },
                     })}
                   />
                 </div>
@@ -207,7 +209,11 @@ function CreateCompetition() {
             <p>Кол-во участников:</p>
             <input {...register(`quantity.${'0'}`)} defaultValue={0} placeholder='0' readOnly />
             <span>/</span>{' '}
-            <input {...register(`quantity.${'1'}`)} placeholder='32' defaultValue={32} />
+            <input
+              {...register(`quantity.${'1'}`, { pattern: { value: /^\d+$/ } })}
+              placeholder='32'
+              defaultValue={32}
+            />
           </div>
           <h1>Дата проведения</h1>
           <DateRange

@@ -123,7 +123,7 @@ $wordColor: rgb(75, 78, 80);
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    padding: 15px 0;
+    padding: 15px 0 0 0;
 
     h1 {
       font-size: 25px;
@@ -173,7 +173,7 @@ $wordColor: rgb(75, 78, 80);
   }
 
   &.photo {
-    margin-bottom: 15px;
+    margin: 15px 0;
   }
   h1 {
     padding: 10px 0;
@@ -189,6 +189,9 @@ $wordColor: rgb(75, 78, 80);
   align-items: center;
 
   position: relative;
+  p {
+    margin-left: 5px;
+  }
   img {
     max-width: 154px;
     max-height: 154px;
@@ -282,6 +285,9 @@ $wordColor: rgb(75, 78, 80);
       input[type='file'] {
         display: none;
       }
+    }
+    p {
+      margin-left: 10px;
     }
   }
 }

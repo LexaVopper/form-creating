@@ -35,7 +35,7 @@ function Prize({ watch, prizeRemove, index, item, control, register, errors }) {
             />
           </label>
         </div>
-        <p className='error'>{errors?.photo?.message}</p>
+        <p className='error'>{errors?.prize?.[index]?.image?.message}</p>
       </div>
 
       <div className={cn('prize__content', { read: edit === '' })}>
@@ -49,12 +49,18 @@ function Prize({ watch, prizeRemove, index, item, control, register, errors }) {
           <p className='error'>{errors?.prize?.[index]?.name?.message}</p>
           <input
             {...register(`prize[${index}].price`, {
-              required: <i className='fas fa-exclamation-triangle'></i>,
+              required: true,
+              pattern: { value: /^\d+$/, message: 'Укажите цену цифрами' },
             })}
             placeholder='цена'
           />
-          <p className='error'>{errors?.prize?.[index]?.price?.message}</p>
+          {errors?.prize?.[index]?.price && errors?.prize?.[index]?.price?.type === 'required' && (
+            <p className='error'>
+              <i className='fas fa-exclamation-triangle'></i>
+            </p>
+          )}
         </div>
+        <p className='error'>{errors?.prize?.[index]?.price?.message}</p>
 
         <Characteristic nestIndex={index} {...{ control, register, errors }} />
       </div>
