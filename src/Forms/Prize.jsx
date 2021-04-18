@@ -65,7 +65,7 @@ function Prize({ watch, prizeRemove, index, item, control, register, errors }) {
         ''
       ) : (
         <span className='prize__delete' onClick={() => prizeRemove(index)}>
-          <i class='fas fa-trash'></i>
+          <i className='fas fa-minus-circle'></i>
         </span>
       )}
 

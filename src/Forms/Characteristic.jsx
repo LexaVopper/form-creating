@@ -16,10 +16,6 @@ function Characteristic({ nestIndex, control, register, errors }) {
       {charFields.map((item, ind) => {
         return (
           <div className='prize__content characteristic' key={item.id}>
-            <span className='characteristic__delete' onClick={() => charRemove(ind)}>
-              <i class='fas fa-trash'></i>
-            </span>
-
             <div className='characteristic__name'>
               <input
                 {...register(`prize.${nestIndex}.params[${ind}].price`, {
@@ -38,6 +34,9 @@ function Characteristic({ nestIndex, control, register, errors }) {
               />
               <p className='error'>{errors?.prize?.[nestIndex]?.params?.[ind]?.value?.message}</p>
             </div>
+            <span className='characteristic__delete' onClick={() => charRemove(ind)}>
+              <i className='fas fa-trash'></i>
+            </span>
           </div>
         );
       })}
