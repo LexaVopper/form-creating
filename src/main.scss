@@ -16,7 +16,7 @@ $wordColor: rgb(75, 78, 80);
   background-color: $mainColor;
   width: 100%;
   height: 100%;
-  max-width: 700px;
+  max-width: 1000px;
 
   color: $wordColor;
 }
@@ -54,7 +54,7 @@ $wordColor: rgb(75, 78, 80);
 
   &-mini {
     width: 150px;
-    height: 40px;
+    height: 50px;
     margin: 10px;
     align-self: center;
     border-radius: 10px;
@@ -72,7 +72,7 @@ $wordColor: rgb(75, 78, 80);
       background-color: #3d91ff;
     }
 
-    &.active {
+    &.set {
       color: #ffffff;
       background-color: #3d91ff;
     }
@@ -126,7 +126,6 @@ $wordColor: rgb(75, 78, 80);
     padding: 15px 0 0 0;
 
     h1 {
-      font-size: 25px;
       flex: 0 1 15%;
     }
 
@@ -147,28 +146,36 @@ $wordColor: rgb(75, 78, 80);
     }
   }
 
+  &__score {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+
+    input {
+      color: black;
+      font-size: 30px;
+      border: 0;
+      padding: 8px 0;
+      text-align: center;
+      width: 100px;
+      border-radius: 5px;
+    }
+
+    span {
+      padding: 0 10px;
+      font-size: 45px;
+    }
+  }
+
   &__quantity {
     display: flex;
     flex-direction: row;
     padding: 15px 0 20px 0;
     align-items: center;
-
-    input {
-      color: black;
-      font-size: 18px;
-      border: 0;
-      padding: 8px 0;
-      text-align: center;
-      width: 10%;
-      border-radius: 5px;
-    }
     p {
-      font-size: 23px;
+      font-size: 32px;
       flex: 0 1 37%;
-    }
-    span {
-      padding: 0 10px;
-      font-size: 25px;
     }
   }
 
@@ -177,8 +184,23 @@ $wordColor: rgb(75, 78, 80);
   }
   h1 {
     padding: 10px 0;
-    font-size: 23px;
+    font-size: 32px;
     align-self: center;
+  }
+
+  @media (max-width: 530px) {
+    &__title {
+      flex-direction: column;
+      input {
+        width: 80%;
+      }
+    }
+    &__quantity {
+      flex-direction: column;
+      p {
+        margin-bottom: 15px;
+      }
+    }
   }
 }
 
@@ -193,12 +215,12 @@ $wordColor: rgb(75, 78, 80);
     margin-left: 5px;
   }
   img {
-    max-width: 154px;
-    max-height: 154px;
+    max-width: 200px;
+    max-height: 200px;
   }
 
   h1 {
-    font-size: 25px;
+    font-size: 32px;
     flex: 0 1 15%;
   }
 
@@ -209,10 +231,8 @@ $wordColor: rgb(75, 78, 80);
       justify-content: center;
       align-items: center;
       img {
-        width: 154px;
-        height: 154px;
-        max-width: 154px;
-        max-height: 154px;
+        max-width: 200px;
+        max-height: 200px;
       }
       label {
         position: absolute;
@@ -235,10 +255,8 @@ $wordColor: rgb(75, 78, 80);
       justify-content: center;
       align-items: center;
       img {
-        width: 154px;
-        height: 154px;
-        max-width: 154px;
-        max-height: 154px;
+        max-width: 200px;
+        max-height: 200px;
       }
       .photo__label {
         position: absolute;
@@ -258,8 +276,8 @@ $wordColor: rgb(75, 78, 80);
 
   &__input {
     label {
-      width: 150px;
-      height: 150px;
+      width: 200px;
+      height: 200px;
       border: 2px dashed grey;
       border-radius: 50%;
       display: flex;
@@ -290,6 +308,12 @@ $wordColor: rgb(75, 78, 80);
       margin-left: 10px;
     }
   }
+  @media (max-width: 480px) {
+    justify-content: center;
+    h1 {
+      display: none;
+    }
+  }
 }
 
 .contrib {
@@ -305,7 +329,7 @@ $wordColor: rgb(75, 78, 80);
 
   &__title {
     margin-top: 10px;
-    font-size: 27px;
+    font-size: 37px;
     text-align: center;
   }
 
@@ -315,12 +339,12 @@ $wordColor: rgb(75, 78, 80);
     justify-content: space-around;
     padding: 15px 0;
     p {
-      font-size: 23px;
+      font-size: 32px;
       margin-right: 10px;
     }
     select {
-      padding: 4px;
-      font-size: 18px;
+      padding: 10px;
+      font-size: 25px;
       border-radius: 10px;
 
       &:focus {
@@ -341,13 +365,13 @@ $wordColor: rgb(75, 78, 80);
     border-radius: 5px;
 
     p {
-      font-size: 22px;
+      font-size: 32px;
     }
     input {
       color: black;
-      font-size: 18px;
+      font-size: 25px;
       border: 0;
-      padding: 8px 0;
+      padding: 12px 0;
       margin-left: 10px;
       width: 78%;
       border-radius: 5px;
@@ -355,17 +379,33 @@ $wordColor: rgb(75, 78, 80);
   }
   &__delete {
     position: absolute;
-    top: 0;
+    top: 3px;
     padding: 5px;
-    left: 95%;
+    right: 5px;
     cursor: pointer;
+    i {
+      color: red;
+      font-size: 32px;
+    }
   }
-  @media (max-width: 450px) {
+  @media (max-width: 530px) {
     &__content {
       align-self: center;
       flex-direction: column;
       :nth-child(1) {
         margin-bottom: 5px;
+      }
+    }
+  }
+  @media (max-width: 480px) {
+    &__link {
+      p {
+        margin-bottom: 5px;
+      }
+      flex-direction: column;
+      input {
+        margin: 0;
+        width: 90%;
       }
     }
   }
@@ -391,7 +431,7 @@ $wordColor: rgb(75, 78, 80);
     padding: 5px;
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 530px) {
     &__type {
       p {
         flex: 0 1 35%;
@@ -401,6 +441,10 @@ $wordColor: rgb(75, 78, 80);
   }
 }
 
+.rdrDateRangeWrapper {
+  align-self: center;
+  width: 90%;
+}
 .rdrMonthsVertical {
   align-items: center;
 }

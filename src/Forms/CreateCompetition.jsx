@@ -50,7 +50,7 @@ function CreateCompetition() {
     }
   };
   const addPrize = () => {
-    if (prizeFields.length > 3) {
+    if (prizeFields.length >= 3) {
     } else {
       prizeAppend();
     }
@@ -100,12 +100,12 @@ function CreateCompetition() {
     <div className='competition'>
       <div className='competition__buttons'>
         <button
-          className={cn('button-mini', { active: togglePageVisible === 'contributions' })}
+          className={cn('button-mini', { set: togglePageVisible === 'contributions' })}
           onClick={() => toggle(toggleNames[0])}>
           Конкурс
         </button>
         <button
-          className={cn('button-mini', { active: togglePageVisible === 'prize' })}
+          className={cn('button-mini', { set: togglePageVisible === 'prize' })}
           onClick={() => toggle(toggleNames[1])}>
           Призы
         </button>
@@ -145,7 +145,7 @@ function CreateCompetition() {
 
                 <input
                   {...register('photo', {
-                    required: 'Укажите фотографию',
+                    required: <i className='fas fa-exclamation-triangle '></i>,
                   })}
                   type='file'
                 />
@@ -194,7 +194,7 @@ function CreateCompetition() {
                   ''
                 ) : (
                   <span className='contrib__delete' onClick={() => remove(index)}>
-                    X
+                    <i class='fas fa-minus-circle'></i>
                   </span>
                 )}
               </div>
@@ -207,13 +207,15 @@ function CreateCompetition() {
 
           <div className='modul-competition__quantity'>
             <p>Кол-во участников:</p>
-            <input {...register(`quantity.${'0'}`)} defaultValue={0} placeholder='0' readOnly />
-            <span>/</span>{' '}
-            <input
-              {...register(`quantity.${'1'}`, { pattern: { value: /^\d+$/ } })}
-              placeholder='32'
-              defaultValue={32}
-            />
+            <div className='modul-competition__score'>
+              <input {...register(`quantity.${'0'}`)} defaultValue={0} placeholder='0' readOnly />
+              <span>/</span>{' '}
+              <input
+                {...register(`quantity.${'1'}`, { pattern: { value: /^\d+$/ } })}
+                placeholder='32'
+                defaultValue={32}
+              />
+            </div>
           </div>
           <h1>Дата проведения</h1>
           <DateRange

@@ -19,7 +19,7 @@ function Characteristic({ nestIndex, control, register, errors }) {
             <div className='characteristic__name'>
               <input
                 {...register(`prize.${nestIndex}.params[${ind}].price`, {
-                  required: <i className='fas fa-exclamation-triangle'></i>,
+                  required: 'Нужно заполнить поле',
                 })}
                 placeholder='Характеристика'
               />
@@ -28,7 +28,7 @@ function Characteristic({ nestIndex, control, register, errors }) {
             <div className='characteristic__type'>
               <input
                 {...register(`prize.${nestIndex}.params[${ind}].value`, {
-                  required: <i className='fas fa-exclamation-triangle'></i>,
+                  required: 'Нужно заполнить поле',
                 })}
                 placeholder='Тип'
               />

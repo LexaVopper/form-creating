@@ -20,9 +20,13 @@ i {
   }
 }
 .active {
+  display: block;
+  position: relative;
   visibility: visible;
+  display: flex;
 }
 .hide {
+  position: absolute;
   visibility: hidden;
 }
 input::placeholder {
@@ -53,32 +57,41 @@ input::placeholder {
   }
   &__title {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex-direction: row;
     padding: 20px 0 10px 0;
+    width: 100%;
 
-    input {
-      background-color: $inputColor;
-      border: 0;
-      padding: 6px;
-      font-size: 20px;
-      color: #ffffff;
-      border-radius: 5px;
-      margin-left: 10px;
-      width: 50%;
-      &:focus {
-        outline: none;
+    &-price,
+    &-name {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+
+      input {
+        background-color: $inputColor;
+        border: 0;
+        padding: 15px;
+        font-size: 25px;
+        color: #ffffff;
+        border-radius: 5px;
+        margin-left: 10px;
+        width: 100%;
+        &:focus {
+          outline: none;
+        }
       }
     }
   }
 
   &__edit {
     position: absolute;
-    top: 3%;
-    right: 2%;
+    top: 7px;
+    right: 10px;
     z-index: 2;
     width: 108px;
-    height: 20px;
+    height: 25px;
     align-self: center;
     border-radius: 5px;
     border: 1px solid #32a1ce;
@@ -97,7 +110,7 @@ input::placeholder {
     justify-content: space-around;
     flex-direction: column;
     width: 100%;
-    padding: 5px;
+    padding: 20px 10px 10px 10px;
     align-items: center;
 
     &.read {
@@ -119,12 +132,16 @@ input::placeholder {
     cursor: pointer;
     position: absolute;
     text-align: center;
-    left: 101%;
-    top: 0;
+    left: 5px;
+    top: 5px;
+    z-index: 2;
     font-size: 20px;
+    i {
+      font-size: 35px;
+    }
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 570px) {
     &__title {
       align-self: center;
       flex-direction: column;
@@ -139,6 +156,7 @@ input::placeholder {
   @media (max-width: 410px) {
     flex-direction: column;
     &__photo {
+      align-self: flex-start;
       justify-content: center;
     }
     &__title {
@@ -151,18 +169,13 @@ input::placeholder {
         margin-bottom: 10px;
       }
     }
-    &__edit {
-      width: 68px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
   }
 }
 .characteristic {
   position: relative;
-  align-self: flex-end;
-  width: 70%;
-  padding: 5px;
+  align-self: center;
+  width: 80%;
+  padding: 13px;
   background-color: #ffff;
   display: flex;
   justify-content: space-around;
@@ -180,35 +193,71 @@ input::placeholder {
     font-size: 20px;
   }
   &__type {
-    flex: 0 1 30%;
-
-    input {
-      width: 45%;
-      background-color: $inputColor;
-      border: 0;
-      padding: 4px;
-      font-size: 14px;
-      color: #fff;
-      border-radius: 5px;
-    }
-  }
-  &__name {
-    flex: 0 1 70%;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+    flex-direction: column;
     input {
       width: 80%;
       background-color: $inputColor;
       border: 0;
-      padding: 4px;
-      font-size: 14px;
+      padding: 10px;
+      font-size: 17px;
       color: #fff;
       border-radius: 5px;
     }
+    p {
+      font-size: 12px;
+    }
   }
-  @media (max-width: 410px) {
-    align-self: center;
+
+  &__name {
+    flex: 0 1 70%;
+    display: flex;
+    flex-direction: column;
+
+    input {
+      width: 80%;
+      background-color: $inputColor;
+      border: 0;
+      padding: 10px;
+      font-size: 17px;
+      color: #fff;
+      border-radius: 5px;
+    }
+    p {
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 570px) {
+    flex-direction: column;
+    padding: 10px 0 10px 10px;
+
+    &__name {
+      margin-bottom: 5px;
+      width: 80%;
+      align-self: flex-start;
+    }
+    &__type {
+      width: 80%;
+      align-self: flex-start;
+    }
+    &__delete {
+      position: absolute;
+      top: 29%;
+      size: 9px;
+      right: 10px;
+      i {
+        font-size: 48px;
+      }
+    }
+  }
+  @media (max-width: 370px) {
+    &__delete {
+      top: 33%;
+      i {
+        font-size: 38px;
+      }
+    }
   }
 }
 
