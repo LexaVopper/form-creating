@@ -95,7 +95,7 @@ function CreateCompetition() {
   };
 
   const toggleNames = ['contributions', 'prize'];
-  console.log(errors);
+
   return (
     <div className='competition'>
       <div className='competition__buttons'>

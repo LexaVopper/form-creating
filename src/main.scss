@@ -23,9 +23,6 @@ $wordColor: rgb(75, 78, 80);
 
 .competition {
   width: 100%;
-  :focus {
-    outline: none;
-  }
 
   &__buttons {
     display: flex;
@@ -104,6 +101,9 @@ $wordColor: rgb(75, 78, 80);
     cursor: pointer;
     align-self: flex-end;
     border-radius: 5px;
+  }
+  :focus {
+    outline: none;
   }
   @media (max-width: 410px) {
     &__next {

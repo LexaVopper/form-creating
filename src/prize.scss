@@ -28,7 +28,9 @@ i {
 .hide {
   position: absolute;
   visibility: hidden;
+  height: 1px;
 }
+
 input::placeholder {
   color: #fff;
 }
